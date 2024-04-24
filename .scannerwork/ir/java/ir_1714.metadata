@@ -1,0 +1,2 @@
+com.simplecity.amp_library.model.Song#setSortKey()V
+com.simplecity.amp_library.utils.StringUtils#keyFor(Ljava/lang/String;)Ljava/lang/String;

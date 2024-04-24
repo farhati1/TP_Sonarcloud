@@ -50,8 +50,8 @@ public class SettingsParentFragment extends BaseNavigationController implements
         DrawerLockManager.DrawerLock,
         MiniPlayerLockManager.MiniPlayerLock {
 
-    public static String ARG_PREFERENCE_RESOURCE = "preference_resource";
-    public static String ARG_TITLE = "title";
+    public static final String ARG_PREFERENCE_RESOURCE = "preference_resource";
+    public static final String ARG_TITLE = "title";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -74,6 +74,7 @@ public class SettingsParentFragment extends BaseNavigationController implements
     }
 
     public SettingsParentFragment() {
+        // Do nothing
     }
 
     @Override
@@ -166,6 +167,7 @@ public class SettingsParentFragment extends BaseNavigationController implements
         }
 
         public SettingsFragment() {
+            // Do nothing
         }
 
         @Override
@@ -384,11 +386,10 @@ public class SettingsParentFragment extends BaseNavigationController implements
 
             // Upgrade preference
             Preference upgradePreference = findPreference(SettingsManager.KEY_PREF_UPGRADE);
-            if (upgradePreference != null) {
-                if (ShuttleUtils.isUpgraded((ShuttleApplication) getContext().getApplicationContext(), settingsManager)) {
+            if (upgradePreference != null && ShuttleUtils.isUpgraded((ShuttleApplication) getContext().getApplicationContext(), settingsManager)) {
                     upgradePreference.setVisible(false);
                 }
-            }
+            
         }
 
         @Override
@@ -475,7 +476,7 @@ public class SettingsParentFragment extends BaseNavigationController implements
 
         @Override
         public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
-
+            // Do nothing
         }
 
         // Support View

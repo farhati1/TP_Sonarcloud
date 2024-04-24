@@ -1,0 +1,4 @@
+com.simplecity.amp_library.ui.screens.qcircle.QCircleActivity#onServiceConnected(LComponentName;LIBinder;)V
+==
+updateTrackInfo com.simplecity.amp_library.ui.screens.qcircle.QCircleActivity#updateTrackInfo()V
+onServiceConnected com.simplecity.amp_library.ui.common.BaseActivity#onServiceConnected(LComponentName;LIBinder;)V

@@ -1,0 +1,154 @@
+
+Mcom.simplecity.amp_library.model.Song#getRemoteArtworkUrl()Ljava/lang/String;T
+H/D:/Shuttle/app/src/main/java/com/simplecity/amp_library/model/Song.javaì ì(%"8*¾
+2
+î ğ(_ƒ
+€
+
+î ğ(_
+%11java.lang.String"__concat*&
+
+î ğ(
+
+%6java.lang.String*'
+
+ğ" ğ(_
+
+%10java.lang.String"'
+
+î ğ(`
+
+%11java.lang.String*´
+3
+ğ" ğ(_
+š
+
+ğ" ğ(_
+%10java.lang.String"Rjava.net.URLEncoder#encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;*3
+
+__unknown_file ("
+java.net.URLEncoder*4
+
+__unknown_file (
+
+%7java.lang.String*4
+
+__unknown_file (
+
+%9java.lang.String*
+2*·
+4
+ğ? ğ(^ 
+
+ğ? ğ(^
+%9java.lang.String"1java.nio.charset.Charset#name()Ljava/lang/String;*<
+
+__unknown_file ( 
+
+%8java.nio.charset.Charset2name()*
+3*õ
+5
+î ï(f€
+~
+
+î ï(f
+%5java.lang.String"__concat*&
+
+î ï( 
+
+%0java.lang.String*&
+
+ï# ï(f
+
+%4java.lang.Strings
+q
+
+î ğ(
+%6java.lang.String"__concat*&
+
+î ï(f
+
+%5java.lang.String*
+
+ğ ğ(	
+&album=ƒ
+€
+
+ğ4 ğ(=
+%7java.lang.String"__id*T
+
+__unknown_file (8*6'
+%com.simplecity.amp_library.model.Song"
+	albumNameà
+İ
+
+ğ? ğ(W
+%8java.nio.charset.Charset"Njava.nio.charset.Charset#forName(Ljava/lang/String;)Ljava/nio/charset/Charset;*8
+
+__unknown_file ("
+java.nio.charset.Charset*%
+
+__unknown_file (	
+UTF-8*
+4*³
+6
+ï# ï(fœ
+™
+
+ï# ï(f
+%4java.lang.String"Rjava.net.URLEncoder#encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;*3
+
+__unknown_file ("
+java.net.URLEncoder*4
+
+__unknown_file (
+
+%1java.lang.String*4
+
+__unknown_file (
+
+%3java.lang.String*
+5*·
+7
+ïF ï(e 
+
+ïF ï(e
+%3java.lang.String"1java.nio.charset.Charset#name()Ljava/lang/String;*<
+
+__unknown_file ( 
+
+%2java.nio.charset.Charset2name()*
+6*œ
+8
+î î(J–
+“
+
+î ï( 
+%0java.lang.String"__concat*G
+
+î î(J97
+5https://artwork.shuttlemusicplayer.app/api/v1/artwork*
+
+ï ï( 
+
+?artist=‰
+†
+
+ï5 ï(D
+%1java.lang.String"__id*Z
+
+__unknown_file (>*<'
+%com.simplecity.amp_library.model.Song"
+albumArtistNameà
+İ
+
+ïF ï(^
+%2java.nio.charset.Charset"Njava.nio.charset.Charset#forName(Ljava/lang/String;)Ljava/nio/charset/Charset;*8
+
+__unknown_file ("
+java.nio.charset.Charset*%
+
+__unknown_file (	
+UTF-8*
+7B)'
+%com.simplecity.amp_library.model.SongH

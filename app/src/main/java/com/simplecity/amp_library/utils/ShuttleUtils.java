@@ -45,9 +45,13 @@ import java.util.List;
 
 public final class ShuttleUtils {
 
+    private ShuttleUtils() {
+        //no instance
+    }
+
     //Arguments supplied to various bundles
 
-    private final static String TAG = "ShuttleUtils";
+    private static final String TAG = "ShuttleUtils";
 
     @NonNull
     public static Intent getShuttleStoreIntent(@NonNull String packageName) {

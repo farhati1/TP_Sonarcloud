@@ -140,7 +140,7 @@ public class Song implements
 
         bookMark = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.BOOKMARK));
 
-        //Populate the artwork key & sort key properties if null.
+        // Populate the artwork key & sort key properties if null.
         setSortKey();
         setArtworkKey();
     }
@@ -157,7 +157,7 @@ public class Song implements
 
     public int getPlayCount(Context context) {
 
-        int playCount = 0;
+        int playCountLocal = 0;
 
         Uri playCountUri = PlayCountTable.URI;
         Uri appendedUri = ContentUris.withAppendedId(playCountUri, id);
@@ -169,11 +169,11 @@ public class Song implements
                     .projection(new String[] { PlayCountTable.COLUMN_ID, PlayCountTable.COLUMN_PLAY_COUNT })
                     .build();
 
-            playCount = SqlUtils.createSingleQuery(context, cursor ->
-                    cursor.getInt(cursor.getColumnIndex(PlayCountTable.COLUMN_PLAY_COUNT)), 0, query);
+            playCountLocal = SqlUtils.createSingleQuery(context,
+                    cursor -> cursor.getInt(cursor.getColumnIndex(PlayCountTable.COLUMN_PLAY_COUNT)), 0, query);
         }
 
-        return playCount;
+        return playCountLocal;
     }
 
     public void setStartTime() {
@@ -190,7 +190,8 @@ public class Song implements
     }
 
     /**
-     * Sets this track as 'paused' to make sure the elapsed time doesn't continue to increase
+     * Sets this track as 'paused' to make sure the elapsed time doesn't continue to
+     * increase
      */
     public void setPaused() {
         elapsedTime = elapsedTime + System.currentTimeMillis() - startTime;
@@ -315,8 +316,10 @@ public class Song implements
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         Song song = (Song) o;
 
@@ -347,7 +350,8 @@ public class Song implements
     @Override
     @NonNull
     public String getArtworkKey() {
-        if (artworkKey == null) setArtworkKey();
+        if (artworkKey == null)
+            setArtworkKey();
         return artworkKey;
     }
 

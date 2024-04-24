@@ -1,0 +1,27 @@
+
+Icom.simplecity.amp_library.utils.FileHelper#canReadWrite(Ljava/io/File;)ZX
+N/D:/Shuttle/app/src/main/java/com/simplecity/amp_library/utils/FileHelper.javay y(&"3*‰
+2z! z(%us
+z! z(0
+%1boolean"java.io.File#canWrite()Z*2
+
+__unknown_file (
+
+filejava.io.File2
+canWrite()*
+1*Š
+3z z(sq
+z z(
+%0boolean"java.io.File#canRead()Z*2
+
+__unknown_file (
+
+filejava.io.File2	canRead()*
+2
+1*!
+1z z(1"
+z z(1
+"": 
+y' y(0
+filejava.io.FileB/"-
++com.simplecity.amp_library.utils.FileHelperHX

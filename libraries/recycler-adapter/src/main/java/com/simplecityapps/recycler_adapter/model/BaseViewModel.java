@@ -10,8 +10,8 @@ import com.simplecityapps.recycler_adapter.recyclerview.BaseViewHolder;
 
 import java.util.List;
 
-public abstract class BaseViewModel<VH extends BaseViewHolder> implements
-        ViewModel<VH>,
+public abstract class BaseViewModel<V extends BaseViewHolder> implements
+        ViewModel<V>,
         ContentsComparator {
 
     @LayoutRes
@@ -24,12 +24,12 @@ public abstract class BaseViewModel<VH extends BaseViewHolder> implements
 
     @CallSuper
     @Override
-    public void bindView(VH holder) {
+    public void bindView(V holder) {
         holder.bind(this);
     }
 
     @Override
-    public void bindView(VH holder, int position, List payloads) {
+    public void bindView(V holder, int position, List payloads) {
         if (payloads.isEmpty()) {
             bindView(holder);
         }

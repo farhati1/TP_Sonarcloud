@@ -109,11 +109,17 @@ constructor(
                             }
                         }
                     } catch (ignored: CannotReadException) {
+                        // Do nothing
                     } catch (ignored: IOException) {
+                        // Do nothing
                     } catch (ignored: TagException) {
+                        // Do nothing
                     } catch (ignored: ReadOnlyFileException) {
+                        // Do nothing
                     } catch (ignored: InvalidAudioFrameException) {
+                        // Do nothing
                     } catch (ignored: UnsupportedOperationException) {
+                        // Do nothing
                     }
                 }
                 lyrics

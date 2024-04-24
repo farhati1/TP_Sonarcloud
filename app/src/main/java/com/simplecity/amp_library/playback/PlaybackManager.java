@@ -55,8 +55,6 @@ public class PlaybackManager implements Playback.Callbacks {
 
     private SettingsManager settingsManager;
 
-    private boolean playOnQueueReload = false;
-
     @NonNull
     Playback playback;
 

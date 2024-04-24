@@ -28,7 +28,6 @@ import com.simplecity.amp_library.utils.MusicServiceConnectionUtils;
 import dagger.android.AndroidInjection;
 import javax.inject.Inject;
 
-//Todo: Reapply themes
 public class QCircleActivity extends BaseActivity {
 
     // [START]declared in LGIntent.java of LG Framework
@@ -52,8 +51,8 @@ public class QCircleActivity extends BaseActivity {
     // [END] QuickCircle info.
 
     // -------------------------------------------------------------------------------
-    private final boolean DEBUG = true;
-    private final String TAG = "QCircleActivity";
+    private static final boolean DEBUG = true;
+    private static final String TAG = "QCircleActivity";
     int mQuickCoverState = 0;
     Context mContext;
     private Window win = null;

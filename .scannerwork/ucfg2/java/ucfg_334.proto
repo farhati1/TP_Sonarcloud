@@ -1,0 +1,64 @@
+
+[com.simplecity.amp_library.model.Album#compareTo(Lcom/simplecity/amp_library/model/Album;)IU
+I/D:/Shuttle/app/src/main/java/com/simplecity/amp_library/model/Album.javaþ þ("startingBlock*ü
+startingBlock
+þ þ(.¤
+¡
+
+ý ý(
+%2"
+__annotate*2
+
+__unknown_file (
+java.lang.Override*M
+
+__unknown_file (1
+/
+album&com.simplecity.amp_library.model.Album™
+–
+
+þ þ(!
+%3"
+__annotate*'
+
+__unknown_file (	
+NonNull*M
+
+__unknown_file (1
+/
+album&com.simplecity.amp_library.model.Album–
+“
+
+þ( þ(-/
+album&com.simplecity.amp_library.model.Album"__annotation*"
+
+__unknown_file (
+
+%2*"
+
+__unknown_file (
+
+%3*
+1*º
+1
+ÿ ÿ(ÄÁ
+
+ÿ' ÿ(3
+%0java.lang.String"Ecom.simplecity.amp_library.model.Album#getSortKey()Ljava/lang/String;*F
+
+__unknown_file (*(
+&com.simplecity.amp_library.model.Album2getSortKey()ËÈ
+
+ÿ5 ÿ(G
+%1java.lang.String"Ecom.simplecity.amp_library.model.Album#getSortKey()Ljava/lang/String;*M
+
+__unknown_file (1
+/
+album&com.simplecity.amp_library.model.Album2getSortKey()"
+
+ÿ ÿ(I
+"":=
+
+þ þ(-/
+album&com.simplecity.amp_library.model.AlbumB*(
+&com.simplecity.amp_library.model.AlbumHX

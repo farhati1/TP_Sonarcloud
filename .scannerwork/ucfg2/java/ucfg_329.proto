@@ -1,0 +1,142 @@
+
+Ncom.simplecity.amp_library.model.Album#getRemoteArtworkUrl()Ljava/lang/String;U
+I/D:/Shuttle/app/src/main/java/com/simplecity/amp_library/model/Album.javaÕ Õ(%"6*¾
+2
+× Ù(Xƒ
+€
+
+× Ù(X
+%11java.lang.String"__concat*&
+
+× Ù(
+
+%6java.lang.String*'
+
+Ù" Ù(X
+
+%10java.lang.String"'
+
+× Ù(Y
+
+%11java.lang.String*´
+3
+Ù" Ù(X
+š
+
+Ù" Ù(X
+%10java.lang.String"Rjava.net.URLEncoder#encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;*3
+
+__unknown_file ("
+java.net.URLEncoder*4
+
+__unknown_file (
+
+%7java.lang.String*4
+
+__unknown_file (
+
+%9java.lang.String*
+2*‰
+4
+× Ø(d€
+~
+
+× Ø(d
+%5java.lang.String"__concat*&
+
+× Ø( 
+
+%0java.lang.String*&
+
+Ø# Ø(d
+
+%4java.lang.Strings
+q
+
+× Ù(
+%6java.lang.String"__concat*&
+
+× Ø(d
+
+%5java.lang.String*
+
+Ù Ù(	
+&album=~
+|
+
+Ù4 Ù(8
+%7java.lang.String"__id*P
+
+__unknown_file (4*2(
+&com.simplecity.amp_library.model.Album"
+nameX
+V
+
+Ù: Ù(P
+%8java.nio.charset.Charset"__id*"
+
+__unknown_file (
+"" 
+
+Ù: Ù(W
+%9java.lang.String"1java.nio.charset.Charset#name()Ljava/lang/String;*<
+
+__unknown_file ( 
+
+%8java.nio.charset.Charset2name()*
+3*³
+5
+Ø# Ø(dœ
+™
+
+Ø# Ø(d
+%4java.lang.String"Rjava.net.URLEncoder#encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;*3
+
+__unknown_file ("
+java.net.URLEncoder*4
+
+__unknown_file (
+
+%1java.lang.String*4
+
+__unknown_file (
+
+%3java.lang.String*
+4*·
+6
+× ×(J–
+“
+
+× Ø( 
+%0java.lang.String"__concat*G
+
+× ×(J97
+5https://artwork.shuttlemusicplayer.app/api/v1/artwork*
+
+Ø Ø( 
+
+?artist=Š
+‡
+
+Ø5 Ø(D
+%1java.lang.String"__id*[
+
+__unknown_file (?*=(
+&com.simplecity.amp_library.model.Album"
+albumArtistNameX
+V
+
+ØF Ø(\
+%2java.nio.charset.Charset"__id*"
+
+__unknown_file (
+"" 
+
+ØF Ø(c
+%3java.lang.String"1java.nio.charset.Charset#name()Ljava/lang/String;*<
+
+__unknown_file ( 
+
+%2java.nio.charset.Charset2name()*
+5B*(
+&com.simplecity.amp_library.model.AlbumH

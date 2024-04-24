@@ -464,7 +464,6 @@ public class FolderFragment extends BaseFragment implements
                                     }
                                     mediaManager.playAll(songs, index, true, () -> {
                                         if (isAdded() && getContext() != null) {
-                                            // Todo: Show playback failed toast
                                         }
                                         return Unit.INSTANCE;
                                     });
@@ -553,7 +552,7 @@ public class FolderFragment extends BaseFragment implements
             isShowingBlacklist = false;
         }
         Stream.of(adapter.items)
-                .filter(viewModel -> viewModel instanceof FolderView)
+                .filter(FolderView.class::isInstance)
                 .forEach(viewModel -> ((FolderView) viewModel).setShowWhitelist(show));
         adapter.notifyItemRangeChanged(0, adapter.getItemCount(), 0);
         contextualToolbar.setTitle(R.string.whitelist_title);
@@ -565,7 +564,7 @@ public class FolderFragment extends BaseFragment implements
             isShowingWhitelist = false;
         }
         Stream.of(adapter.items)
-                .filter(viewModel -> viewModel instanceof FolderView)
+                .filter(FolderView.class::isInstance)
                 .forEach(viewModel -> ((FolderView) viewModel).setShowBlacklist(show));
         adapter.notifyItemRangeChanged(0, adapter.getItemCount(), 0);
         contextualToolbar.setTitle(R.string.blacklist_title);
@@ -666,7 +665,6 @@ public class FolderFragment extends BaseFragment implements
 
         @Override
         public void onPlaybackFailed() {
-            // Todo: Improve error message
             Toast.makeText(getContext(), R.string.emptyplaylist, Toast.LENGTH_SHORT).show();
         }
 

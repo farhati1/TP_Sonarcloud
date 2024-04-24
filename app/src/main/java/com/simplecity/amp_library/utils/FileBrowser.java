@@ -107,7 +107,7 @@ public class FileBrowser {
             FolderObject parentObject = new FolderObject();
             parentObject.fileType = FileType.PARENT;
             parentObject.name = FileHelper.PARENT_DIRECTORY;
-            parentObject.path = FileHelper.getPath(currentDir) + "/" + FileHelper.PARENT_DIRECTORY;
+            parentObject.path = FileHelper.getPath(currentDir) + File.separator + FileHelper.PARENT_DIRECTORY;
             folderObjects.add(0, parentObject);
         }
 
@@ -163,7 +163,7 @@ public class FileBrowser {
             files = dir.list((dir1, filename) -> dir1.isDirectory() && filename.toLowerCase().contains("music"));
         }
         if (files != null && files.length > 0) {
-            dir = new File(dir + "/" + files[0]);
+            dir = new File(dir + File.separator + files[0]);
         }
 
         return dir;

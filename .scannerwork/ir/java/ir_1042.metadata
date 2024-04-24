@@ -1,0 +1,5 @@
+com.simplecity.amp_library.ShuttleApplication#onCreate()V
+null
+==
+enableStrictMode com.simplecity.amp_library.ShuttleApplication#enableStrictMode()V
+setLevel java.util.logging.Logger#setLevel(Ljava/util/logging/Level;)V

@@ -25,6 +25,9 @@ import static android.os.Build.VERSION_CODES.KITKAT;
  */
 public class InputMethodManagerLeaks {
 
+    private InputMethodManagerLeaks() {
+    }
+
     static class ReferenceCleaner
             implements MessageQueue.IdleHandler, View.OnAttachStateChangeListener,
             ViewTreeObserver.OnGlobalFocusChangeListener {
@@ -56,6 +59,7 @@ public class InputMethodManagerLeaks {
 
         @Override
         public void onViewAttachedToWindow(View v) {
+            // Do nothing
         }
 
         @Override
@@ -174,7 +178,7 @@ public class InputMethodManagerLeaks {
         application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-
+                // Do nothing
             }
 
             @Override
@@ -189,27 +193,27 @@ public class InputMethodManagerLeaks {
 
             @Override
             public void onActivityResumed(Activity activity) {
-
+                // Do nothing
             }
 
             @Override
             public void onActivityPaused(Activity activity) {
-
+                // Do nothing
             }
 
             @Override
             public void onActivityStopped(Activity activity) {
-
+                // Do nothing
             }
 
             @Override
             public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
+                // Do nothing
             }
 
             @Override
             public void onActivityDestroyed(Activity activity) {
-
+                // Do nothing
             }
         });
     }

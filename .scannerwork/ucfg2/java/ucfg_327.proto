@@ -1,0 +1,57 @@
+
+Hcom.simplecity.amp_library.model.Album#getArtworkKey()Ljava/lang/String;U
+I/D:/Shuttle/app/src/main/java/com/simplecity/amp_library/model/Album.javaÊ Ê("3*³
+2
+Ë  Ë(-œ
+™
+
+Ë  Ë(/
+
+%2void"7com.simplecity.amp_library.model.Album#setArtworkKey()V*F
+
+__unknown_file (*(
+&com.simplecity.amp_library.model.Album*
+1*É
+3
+Ë Ë(…
+‚
+
+Ë Ë(
+%0java.lang.String"__id*V
+
+__unknown_file (:*8(
+&com.simplecity.amp_library.model.Album"
+
+artworkKey§
+¤
+
+Ë Ë(
+%1boolean"	__compare*"
+
+__unknown_file (
+==*4
+
+__unknown_file (
+
+%0java.lang.String*"
+
+__unknown_file (
+""*
+2
+1*¿
+1
+Ì Ì(…
+‚
+
+Ì Ì(
+%3java.lang.String"__id*V
+
+__unknown_file (:*8(
+&com.simplecity.amp_library.model.Album"
+
+artworkKey"&
+
+Ì Ì(
+
+%3java.lang.StringB*(
+&com.simplecity.amp_library.model.AlbumH

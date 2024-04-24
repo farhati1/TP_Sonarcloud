@@ -1,0 +1,111 @@
+
+Lcom.simplecity.amp_library.model.Song#getDiscNumberLabel()Ljava/lang/String;T
+H/D:/Shuttle/app/src/main/java/com/simplecity/amp_library/model/Song.java‘ ‘($"5*Ï
+2
+–" –((¬
+©
+
+–" –(<
+%5java.lang.String"-java.lang.String#valueOf(I)Ljava/lang/String;*0
+
+__unknown_file ("
+java.lang.String*"
+
+__unknown_file (
+""‰
+†
+
+– –(<<'
+%com.simplecity.amp_library.model.Song"
+discNumberLabel"__id*4
+
+__unknown_file (
+
+%5java.lang.String*
+1*Ô
+3
+”" ”((§¤
+
+”1 ”(=
+%3";com.simplecity.amp_library.model.Song#getTagInfo()LTagInfo;*E
+
+__unknown_file ()'
+%com.simplecity.amp_library.model.Song2getTagInfo()›
+˜
+
+”" ”(I
+%4".java.lang.String#valueOf([C)Ljava/lang/String;*0
+
+__unknown_file ("
+java.lang.String*"
+
+__unknown_file (
+""v
+t
+
+” ”(I<'
+%com.simplecity.amp_library.model.Song"
+discNumberLabel"__id*"
+
+__unknown_file (
+
+%4*
+1*¯
+4
+“ “(•
+’
+
+“ “( 
+%2boolean"	__compare*"
+
+__unknown_file (
+==*"
+
+__unknown_file (
+""*"
+
+__unknown_file (
+""*
+2
+3*Í
+5
+’ ’(‰
+†
+
+’ ’(
+%0java.lang.String"__id*Z
+
+__unknown_file (>*<'
+%com.simplecity.amp_library.model.Song"
+discNumberLabel§
+¤
+
+’ ’(#
+%1boolean"	__compare*"
+
+__unknown_file (
+==*4
+
+__unknown_file (
+
+%0java.lang.String*"
+
+__unknown_file (
+""*
+4
+1*Ã
+1
+™ ™(‰
+†
+
+™ ™(
+%6java.lang.String"__id*Z
+
+__unknown_file (>*<'
+%com.simplecity.amp_library.model.Song"
+discNumberLabel"&
+
+™ ™(
+
+%6java.lang.StringB)'
+%com.simplecity.amp_library.model.SongH

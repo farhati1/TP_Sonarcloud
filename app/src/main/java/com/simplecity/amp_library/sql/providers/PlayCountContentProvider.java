@@ -15,8 +15,6 @@ import java.util.HashSet;
 
 public class PlayCountContentProvider extends ContentProvider {
 
-    private static final String TAG = "PlayCountContentProvide";
-
     private PlayCountTable database;
 
     // Used for the Uri Matcher
@@ -85,12 +83,11 @@ public class PlayCountContentProvider extends ContentProvider {
         int uriType = sURIMatcher.match(uri);
         SQLiteDatabase sqlDB = database.getWritableDatabase();
         long id;
-        switch (uriType) {
-            case PLAY_COUNT:
-                id = sqlDB.insert(PlayCountTable.TABLE_PLAY_COUNT, null, values);
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown URI: " + uri);
+        if (uriType == PLAY_COUNT) {
+            id = sqlDB.insert(PlayCountTable.TABLE_PLAY_COUNT, null, values);
+        } else {
+            throw new IllegalArgumentException("Unknown URI: " + uri);
+
         }
         if (id != -1) {
             getContext().getContentResolver().notifyChange(uri, null);
@@ -117,8 +114,7 @@ public class PlayCountContentProvider extends ContentProvider {
                     rowsDeleted = sqlDB.delete(PlayCountTable.TABLE_PLAY_COUNT,
                             PlayCountTable.COLUMN_ID + "=" + id
                                     + " and " + selection,
-                            selectionArgs
-                    );
+                            selectionArgs);
                 }
                 break;
             default:
@@ -154,8 +150,7 @@ public class PlayCountContentProvider extends ContentProvider {
                             PlayCountTable.COLUMN_ID + "=" + id
                                     + " and "
                                     + selection,
-                            selectionArgs
-                    );
+                            selectionArgs);
                 }
                 break;
             default:

@@ -1,0 +1,5 @@
+com.simplecity.amp_library.ui.screens.main.MainController#onCreateView(LLayoutInflater;LViewGroup;LBundle;)LView;
+com.simplecity.amp_library.ui.screens.main.MainController#toggleBottomSheetVisibility(ZZ)V
+==
+setMultiSheetEventRelay com.simplecity.amp_library.ui.views.multisheet.CustomMultiSheetView#setMultiSheetEventRelay(LMultiSheetEventRelay;)V
+setMultiSheetSlideEventRelay com.simplecity.amp_library.ui.views.multisheet.CustomMultiSheetView#setMultiSheetSlideEventRelay(LMultiSheetSlideEventRelay;)V

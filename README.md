@@ -1,3 +1,5 @@
+sonar-scanner -D"sonar.organization=organisation-12345" -D"sonar.projectKey=organisation-12345_scanner-espi" -D"sonar.sources=." -D"sonar.host.url=https://sonarcloud.io" -D"sonar.java.binaries=."
+
 ### Shuttle Music Player
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE.md)

@@ -10,8 +10,6 @@ import java.io.InputStream;
 
 public class TypeLoader implements ModelLoader<ArtworkProvider, InputStream> {
 
-    private static final String TAG = "ArtworkModelLoader";
-
     private Context applicationContext;
 
     @ArtworkProvider.Type

@@ -1,0 +1,3 @@
+com.afollestad.aesthetic.AestheticButton#invalidateColors(LColorIsDarkState;)V
+null
+com.afollestad.aesthetic.TintHelper#setTintAuto(LView;IZZ)V

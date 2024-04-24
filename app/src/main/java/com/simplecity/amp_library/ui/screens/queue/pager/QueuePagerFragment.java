@@ -41,7 +41,7 @@ public class QueuePagerFragment extends BaseFragment implements
         RequestManagerProvider,
         QueuePagerView {
 
-    private final String TAG = "QueuePagerFragment";
+    private static final String TAG = "QueuePagerFragment";
 
     private Unbinder unbinder;
 
@@ -72,6 +72,7 @@ public class QueuePagerFragment extends BaseFragment implements
     }
 
     public QueuePagerFragment() {
+        // Required empty public constructor
     }
 
     @Override

@@ -126,13 +126,13 @@ public class MusicNotificationHelper extends NotificationHelper {
                 .first(false)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(isFavorite -> {
-                    this.isFavorite = isFavorite;
+                .subscribe(isFavoriteLocal -> {
+                    this.isFavorite = isFavoriteLocal;
                     notification = getBuilder(context, song, mediaSessionToken, MusicNotificationHelper.this.bitmap, isPlaying, isFavorite).build();
                     notify(notification);
-                }, error -> {
-                    LogUtils.logException(TAG, "MusicNotificationHelper failed to present notification", error);
-                }));
+                }, error ->
+                    LogUtils.logException(TAG, "MusicNotificationHelper failed to present notification", error)
+                ));
 
         handler.post(() -> Glide.with(context)
                 .load(song)

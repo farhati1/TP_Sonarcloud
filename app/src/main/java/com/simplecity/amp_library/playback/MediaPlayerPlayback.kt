@@ -31,9 +31,9 @@ internal class MediaPlayerPlayback(context: Context) : LocalPlayback(context), M
     override val isPlaying: Boolean
         get() = synchronized(this) {
             if (!isInitialized || isFadingDown) {
-                return false
+                 false
             } else {
-                return currentMediaPlayer?.isPlaying ?: false || isFadingUp
+                 currentMediaPlayer?.isPlaying ?: false || isFadingUp
             }
         }
 
@@ -41,26 +41,25 @@ internal class MediaPlayerPlayback(context: Context) : LocalPlayback(context), M
         get() = synchronized(this) {
             if (isInitialized) {
                 try {
-                    return currentMediaPlayer?.duration?.toLong() ?: 0
+                     currentMediaPlayer?.duration?.toLong() ?: 0
                 } catch (e: IllegalStateException) {
                     Log.e(TAG, "Error in getDuration() of MediaPlayerPlayback: " + e.localizedMessage)
                 }
 
             }
-            return 0
-        }
+            retur   }
 
     override val position: Long
         get() = synchronized(this) {
             if (isInitialized) {
                 try {
-                    return currentMediaPlayer?.currentPosition?.toLong() ?: 0
+                     currentMediaPlayer?.currentPosition?.toLong() ?: 0
                 } catch (e: IllegalStateException) {
                     Log.e(TAG, "Error in getPosition() of MediaPlayerPlayback: " + e.localizedMessage)
                 }
 
             }
-            return 0
+             0
         }
 
     override val audioSessionId: Int
@@ -74,7 +73,7 @@ internal class MediaPlayerPlayback(context: Context) : LocalPlayback(context), M
                 }
 
             }
-            return sessionId
+             sessionId
         }
 
     override fun load(song: Song, playWhenReady: Boolean, seekPosition: Long, completion: ((Boolean) -> Unit)?) {
@@ -274,7 +273,7 @@ internal class MediaPlayerPlayback(context: Context) : LocalPlayback(context), M
                 currentMediaPlayer?.release()
                 currentMediaPlayer = createMediaPlayer(context)
                 callbacks?.onError(this, "Server died")
-                return true
+             true
             }
             else -> {
             }
@@ -296,7 +295,7 @@ internal class MediaPlayerPlayback(context: Context) : LocalPlayback(context), M
     }
 
     override fun updateLastKnownStreamPosition() {
-
+        // do nothing
     }
 
     private fun createMediaPlayer(context: Context): MediaPlayer {

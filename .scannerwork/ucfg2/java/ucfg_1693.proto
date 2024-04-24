@@ -1,0 +1,32 @@
+
+˜com.simplecity.amp_library.ui.screens.tagger.TaggerDialog#newInstance(Ljava/io/Serializable;)Lcom/simplecity/amp_library/ui/screens/tagger/TaggerDialog;f
+\/D:/Shuttle/app/src/main/java/com/simplecity/amp_library/ui/screens/tagger/TaggerDialog.java\ \(*"1*·
+1^ ^("Q
+O
+_ _(&
+%0java.lang.String"__id*%
+
+__unknown_file (	
+model‰†
+`$ `(0?
+%19com.simplecity.amp_library.ui.screens.tagger.TaggerDialog"9com.simplecity.amp_library.ui.screens.tagger.TaggerDialog·
+´
+`  `(2
+%2"Ccom.simplecity.amp_library.ui.screens.tagger.TaggerDialog#<init>()V*]
+
+__unknown_file (A
+?
+%19com.simplecity.amp_library.ui.screens.tagger.TaggerDialog¹
+¶
+` `(3E
+fragment9com.simplecity.amp_library.ui.screens.tagger.TaggerDialog"__id*]
+
+__unknown_file (A
+?
+%19com.simplecity.amp_library.ui.screens.tagger.TaggerDialog"S
+b b(G
+E
+fragment9com.simplecity.amp_library.ui.screens.tagger.TaggerDialog:)
+\+ \(=
+modeljava.io.SerializableB=";
+9com.simplecity.amp_library.ui.screens.tagger.TaggerDialogH

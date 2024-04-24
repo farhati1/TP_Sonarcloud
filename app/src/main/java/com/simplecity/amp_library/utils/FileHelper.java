@@ -26,7 +26,8 @@ import java.util.NoSuchElementException;
 
 public class FileHelper {
 
-    private final static String TAG = "FileHelper";
+    private FileHelper() {
+    }
 
     /**
      * The root directory
@@ -143,7 +144,7 @@ public class FileHelper {
                 filePath = file.getAbsolutePath();
             }
         } catch (IOException ignored) {
-
+            // Ignored
         }
 
         if (!TextUtils.isEmpty(filePath) && filePath.equals("/storage/emulated/0") ||
@@ -293,7 +294,7 @@ public class FileHelper {
      * @param fileOrDirectory the file or directory to delete
      * @return true id the deletion was successful
      */
-    private static boolean DeleteRecursive(File fileOrDirectory) {
+    public static boolean deleteRecursive(File fileOrDirectory) {
         if (fileOrDirectory == null) {
             return false;
         } else if (fileOrDirectory.isDirectory()) {

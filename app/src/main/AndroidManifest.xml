@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <permission android:name="com.yourpackage.YOUR_PERMISSION" android:protectionLevel="signature"/>
     <!-- ## End 'Protection-Normal' permissions ## -->
 
     <!-- ## 'Special' permissions ##-->
@@ -129,6 +130,7 @@
             </intent-filter>
         </activity>
         <activity
+        android:permission="com.google.android.SOME_PERMISSION"
             android:name=".ui.screens.search.voice.VoiceSearchActivity"
             android:excludeFromRecents="true"
             android:exported="true"
@@ -140,6 +142,7 @@
         </activity>
 
         <activity
+        android:permission="com.google.android.SOME_PERMISSION"
             android:name=".ui.screens.shortcut.ShortcutTrampolineActivity"
             android:excludeFromRecents="true"
             android:exported="true"
@@ -150,6 +153,7 @@
         </activity>
 
         <service
+        android:permission="com.google.android.SOME_PERMISSION"
             android:name=".playback.MusicService"
             android:exported="true"
             android:label="@string/app_name">
@@ -193,6 +197,7 @@
 
         <!-- Config Activity for medium Widget -->
         <activity
+        android:permission="com.google.android.SOME_PERMISSION"
             android:name=".ui.widgets.WidgetConfigureActivityMedium"
             android:theme="@style/WallpaperTheme">
             <intent-filter>
@@ -202,6 +207,7 @@
 
         <!-- Config Activity for extra large Widget -->
         <activity
+        android:permission="com.google.android.SOME_PERMISSION"
             android:name=".ui.widgets.WidgetConfigureActivityExtraLarge"
             android:theme="@style/WallpaperTheme">
             <intent-filter>
@@ -224,6 +230,7 @@
 
         <!-- Config Activity for small Widget -->
         <activity
+            android:permission="com.google.android.SOME_PERMISSION"
             android:name=".ui.widgets.WidgetConfigureActivitySmall"
             android:theme="@style/WallpaperTheme">
             <intent-filter>
@@ -246,6 +253,7 @@
 
         <!-- Config Activity for large Widget -->
         <activity
+        android:permission="com.google.android.SOME_PERMISSION"
             android:name=".ui.widgets.WidgetConfigureActivityLarge"
             android:theme="@style/WallpaperTheme">
             <intent-filter>

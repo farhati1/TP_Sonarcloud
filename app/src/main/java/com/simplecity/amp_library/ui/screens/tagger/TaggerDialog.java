@@ -52,19 +52,13 @@ public class TaggerDialog extends DialogFragment {
 
     public static final String ARG_MODEL = "model";
 
-    private MaterialDialog materialDialog;
-
     private boolean hasCheckedPermissions;
 
     private AlbumArtist albumArtist;
     private Album album;
-    private Song song;
 
     List<String> originalSongPaths = new ArrayList<>();
     private List<DocumentFile> documentFiles = new ArrayList<>();
-
-    private boolean showAlbum = true;
-    private boolean showTrack = true;
 
     private EditText albumArtistEditText;
     private EditText artistEditText;
@@ -78,13 +72,6 @@ public class TaggerDialog extends DialogFragment {
     private EditText discTotalEditText;
     private EditText lyricsEditText;
     private EditText commentEditText;
-
-    private TextInputLayout albumInputLayout;
-    private TextInputLayout titleInputLayout;
-    private TextInputLayout trackInputLayout;
-    private TextInputLayout discInputLayout;
-    private TextInputLayout lyricsInputLayout;
-    private TextInputLayout commentInputLayout;
 
     private String artistName;
     private String albumName;
@@ -142,7 +129,6 @@ public class TaggerDialog extends DialogFragment {
         if (originalSongPaths == null || originalSongPaths.isEmpty()) {
             dismiss();
 
-            //Todo: refine & extract
             Toast.makeText(getContext(), R.string.tag_retrieve_error, Toast.LENGTH_LONG).show();
         }
     }
@@ -242,7 +228,7 @@ public class TaggerDialog extends DialogFragment {
             try {
                 albumArtistName = tag.getFirst(FieldKey.ALBUM_ARTIST);
             } catch (UnsupportedOperationException ignored) {
-
+                // Album artist not supported
             }
             genre = tag.getFirst(FieldKey.GENRE);
             year = tag.getFirst(FieldKey.YEAR);
@@ -250,29 +236,30 @@ public class TaggerDialog extends DialogFragment {
             try {
                 trackTotal = tag.getFirst(FieldKey.TRACK_TOTAL);
             } catch (UnsupportedOperationException ignored) {
-
+                // Album artist not supported
             }
             try {
                 disc = tag.getFirst(FieldKey.DISC_NO);
             } catch (UnsupportedOperationException ignored) {
-
+                // Album artist not supported
             }
             try {
                 discTotal = tag.getFirst(FieldKey.DISC_TOTAL);
             } catch (UnsupportedOperationException ignored) {
-
+                // Album artist not supported
             }
             try {
                 lyrics = tag.getFirst(FieldKey.LYRICS);
             } catch (UnsupportedOperationException ignored) {
-
+                // Album artist not supported
             }
             try {
                 comment = tag.getFirst(FieldKey.COMMENT);
             } catch (UnsupportedOperationException ignored) {
-
+                // Album artist not supported
             }
-        } catch (IOException | InvalidAudioFrameException | TagException | ReadOnlyFileException | CannotReadException e) {
+        } catch (IOException | InvalidAudioFrameException | TagException | ReadOnlyFileException
+                | CannotReadException e) {
             Log.e(TAG, "Failed to read tags. " + e.toString());
         }
 
@@ -321,88 +308,91 @@ public class TaggerDialog extends DialogFragment {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        CheckDocumentPermissionsTask task = new CheckDocumentPermissionsTask(getContext(), settingsManager, originalSongPaths, documentFiles, hasPermission -> {
+        CheckDocumentPermissionsTask task = new CheckDocumentPermissionsTask(getContext(), settingsManager,
+                originalSongPaths, documentFiles, hasPermission -> {
 
-            if (isResumed() && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-
-            if (!isResumed() || getContext() == null) {
-                LogUtils.logException(TAG, "Save tags returning early.. Context null or dialog not resumed.", null);
-                return;
-            }
-
-            if (hasPermission) {
-
-                final ProgressDialog saveProgressDialog = new ProgressDialog(getContext());
-                saveProgressDialog.setMessage(getResources().getString(R.string.saving_tags));
-                saveProgressDialog.setMax(originalSongPaths.size());
-                saveProgressDialog.setIndeterminate(false);
-                saveProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                saveProgressDialog.setCancelable(false);
-                saveProgressDialog.show();
-
-                TaggerTask.TagCompletionListener listener = new TaggerTask.TagCompletionListener() {
-                    @Override
-                    public void onSuccess() {
-
-                        CustomMediaScanner.scanFiles(getContext(), originalSongPaths, null);
-
-                        if (getContext() != null && isResumed()) {
-                            saveProgressDialog.dismiss();
-
-                            dismiss();
-                        }
+                    if (isResumed() && progressDialog.isShowing()) {
+                        progressDialog.dismiss();
                     }
 
-                    @Override
-                    public void onFailure() {
-
-                        if (getContext() != null && isResumed()) {
-                            saveProgressDialog.dismiss();
-                            Toast.makeText(getContext(), R.string.tag_error, Toast.LENGTH_LONG).show();
-                            dismiss();
-                        }
+                    if (!isResumed() || getContext() == null) {
+                        LogUtils.logException(TAG, "Save tags returning early.. Context null or dialog not resumed.",
+                                null);
+                        return;
                     }
 
-                    @Override
-                    public void onProgress(int progress) {
-                        saveProgressDialog.setProgress(progress);
-                    }
-                };
+                    if (hasPermission) {
 
-                TaggerTask taggerTask = new TaggerTask(getContext())
-                        .showAlbum(showAlbum)
-                        .showTrack(showTrack)
-                        .setPaths(originalSongPaths)
-                        .setDocumentfiles(documentFiles)
-                        .title(titleEditText.getText().toString())
-                        .album(albumEditText.getText().toString())
-                        .artist(artistEditText.getText().toString())
-                        .albumArtist(albumArtistEditText.getText().toString())
-                        .year(yearEditText.getText().toString())
-                        .track(trackEditText.getText().toString())
-                        .trackTotal(trackTotalEditText.getText().toString())
-                        .disc(discEditText.getText().toString())
-                        .discTotal(discTotalEditText.getText().toString())
-                        .lyrics(lyricsEditText.getText().toString())
-                        .comment(commentEditText.getText().toString())
-                        .genre(genreEditText.getText().toString())
-                        .listener(listener)
-                        .build();
-                taggerTask.execute();
-            } else {
-                TaggerUtils.showChooseDocumentDialog(getContext(), (dialog1, which1) -> {
-                    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-                    if (intent.resolveActivity(getContext().getPackageManager()) != null) {
-                        this.startActivityForResult(intent, DOCUMENT_TREE_REQUEST_CODE);
+                        final ProgressDialog saveProgressDialog = new ProgressDialog(getContext());
+                        saveProgressDialog.setMessage(getResources().getString(R.string.saving_tags));
+                        saveProgressDialog.setMax(originalSongPaths.size());
+                        saveProgressDialog.setIndeterminate(false);
+                        saveProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                        saveProgressDialog.setCancelable(false);
+                        saveProgressDialog.show();
+
+                        TaggerTask.TagCompletionListener listener = new TaggerTask.TagCompletionListener() {
+                            @Override
+                            public void onSuccess() {
+
+                                CustomMediaScanner.scanFiles(getContext(), originalSongPaths, null);
+
+                                if (getContext() != null && isResumed()) {
+                                    saveProgressDialog.dismiss();
+
+                                    dismiss();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure() {
+
+                                if (getContext() != null && isResumed()) {
+                                    saveProgressDialog.dismiss();
+                                    Toast.makeText(getContext(), R.string.tag_error, Toast.LENGTH_LONG).show();
+                                    dismiss();
+                                }
+                            }
+
+                            @Override
+                            public void onProgress(int progress) {
+                                saveProgressDialog.setProgress(progress);
+                            }
+                        };
+
+                        TaggerTask taggerTask = new TaggerTask(getContext())
+                                .showAlbum(showAlbum)
+                                .showTrack(showTrack)
+                                .setPaths(originalSongPaths)
+                                .setDocumentfiles(documentFiles)
+                                .title(titleEditText.getText().toString())
+                                .album(albumEditText.getText().toString())
+                                .artist(artistEditText.getText().toString())
+                                .albumArtist(albumArtistEditText.getText().toString())
+                                .year(yearEditText.getText().toString())
+                                .track(trackEditText.getText().toString())
+                                .trackTotal(trackTotalEditText.getText().toString())
+                                .disc(discEditText.getText().toString())
+                                .discTotal(discTotalEditText.getText().toString())
+                                .lyrics(lyricsEditText.getText().toString())
+                                .comment(commentEditText.getText().toString())
+                                .genre(genreEditText.getText().toString())
+                                .listener(listener)
+                                .build();
+                        taggerTask.execute();
                     } else {
-                        Toast.makeText(getContext(), R.string.R_string_toast_no_document_provider, Toast.LENGTH_LONG).show();
+                        TaggerUtils.showChooseDocumentDialog(getContext(), (dialog1, which1) -> {
+                            Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                            if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                                this.startActivityForResult(intent, DOCUMENT_TREE_REQUEST_CODE);
+                            } else {
+                                Toast.makeText(getContext(), R.string.R_string_toast_no_document_provider,
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }, hasCheckedPermissions);
+                        hasCheckedPermissions = true;
                     }
-                }, hasCheckedPermissions);
-                hasCheckedPermissions = true;
-            }
-        });
+                });
         task.execute();
     }
 
@@ -413,7 +403,8 @@ public class TaggerDialog extends DialogFragment {
             case DOCUMENT_TREE_REQUEST_CODE:
                 if (resultCode == Activity.RESULT_OK) {
                     Uri treeUri = data.getData();
-                    getContext().getContentResolver().takePersistableUriPermission(treeUri, Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    getContext().getContentResolver().takePersistableUriPermission(treeUri,
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                     settingsManager.setDocumentTreeUri(data.getData().toString());
                     saveTags();
                 }

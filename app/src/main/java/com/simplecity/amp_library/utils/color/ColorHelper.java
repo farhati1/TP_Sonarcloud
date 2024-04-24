@@ -27,7 +27,8 @@ import android.support.v4.util.Pair;
 import android.util.Log;
 
 /**
- * Helper class to process legacy (Holo) notifications to make them look like material notifications.
+ * Helper class to process legacy (Holo) notifications to make them look like
+ * material notifications.
  *
  * @hide
  */
@@ -51,12 +52,15 @@ public class ColorHelper {
     /**
      * Finds a suitable color such that there's enough contrast.
      *
-     * @param color the color to start searching from.
-     * @param other the color to ensure contrast against. Assumed to be lighter than {@param color}
-     * @param findFg if true, we assume {@param color} is a foreground, otherwise a background.
+     * @param color    the color to start searching from.
+     * @param other    the color to ensure contrast against. Assumed to be lighter
+     *                 than {@param color}
+     * @param findFg   if true, we assume {@param color} is a foreground, otherwise
+     *                 a background.
      * @param minRatio the minimum contrast ratio required.
-     * @return a color with the same hue as {@param color}, potentially darkened to meet the
-     *          contrast ratio.
+     * @return a color with the same hue as {@param color}, potentially darkened to
+     *         meet the
+     *         contrast ratio.
      */
     private static int findContrastColor(int color, int other, boolean findFg, double minRatio) {
         int fg = findFg ? color : other;
@@ -68,8 +72,10 @@ public class ColorHelper {
         double[] lab = new double[3];
         ColorUtilsFromCompat.colorToLAB(findFg ? fg : bg, lab);
 
-        double low = 0, high = lab[0];
-        final double a = lab[1], b = lab[2];
+        double low = 0;
+        double high = lab[0];
+        final double a = lab[1];
+        final double b = lab[2];
         for (int i = 0; i < 15 && high - low > 0.00001; i++) {
             final double l = (low + high) / 2;
             if (findFg) {
@@ -89,10 +95,11 @@ public class ColorHelper {
     /**
      * Finds a suitable alpha such that there's enough contrast.
      *
-     * @param color the color to start searching from.
+     * @param color           the color to start searching from.
      * @param backgroundColor the color to ensure contrast against.
-     * @param minRatio the minimum contrast ratio required.
-     * @return the same color as {@param color} with potentially modified alpha to meet contrast
+     * @param minRatio        the minimum contrast ratio required.
+     * @return the same color as {@param color} with potentially modified alpha to
+     *         meet contrast
      */
     private static int findAlphaToMeetContrast(int color, int backgroundColor, double minRatio) {
         int fg = color;
@@ -105,7 +112,8 @@ public class ColorHelper {
         int g = Color.green(color);
         int b = Color.blue(color);
 
-        int low = startAlpha, high = 255;
+        int low = startAlpha;
+        int high = 255;
         for (int i = 0; i < 15 && high - low > 0; i++) {
             final int alpha = (low + high) / 2;
             fg = Color.argb(alpha, r, g, b);
@@ -121,12 +129,15 @@ public class ColorHelper {
     /**
      * Finds a suitable color such that there's enough contrast.
      *
-     * @param color the color to start searching from.
-     * @param other the color to ensure contrast against. Assumed to be darker than {@param color}
-     * @param findFg if true, we assume {@param color} is a foreground, otherwise a background.
+     * @param color    the color to start searching from.
+     * @param other    the color to ensure contrast against. Assumed to be darker
+     *                 than {@param color}
+     * @param findFg   if true, we assume {@param color} is a foreground, otherwise
+     *                 a background.
      * @param minRatio the minimum contrast ratio required.
-     * @return a color with the same hue as {@param color}, potentially darkened to meet the
-     *          contrast ratio.
+     * @return a color with the same hue as {@param color}, potentially darkened to
+     *         meet the
+     *         contrast ratio.
      */
     private static int findContrastColorAgainstDark(int color, int other, boolean findFg,
             double minRatio) {
@@ -139,7 +150,8 @@ public class ColorHelper {
         float[] hsl = new float[3];
         ColorUtilsFromCompat.colorToHSL(findFg ? fg : bg, hsl);
 
-        float low = hsl[2], high = 1;
+        float low = hsl[2];
+        float high = 1;
         for (int i = 0; i < 15 && high - low > 0.00001; i++) {
             final float l = (low + high) / 2;
             hsl[2] = l;
@@ -159,10 +171,13 @@ public class ColorHelper {
 
     /**
      * Change a color by a specified value
+     * 
      * @param baseColor the base color to lighten
-     * @param amount the amount to lighten the color from 0 to 100. This corresponds to the L
-     *               increase in the LAB color space. A negative value will darken the color and
-     *               a positive will lighten it.
+     * @param amount    the amount to lighten the color from 0 to 100. This
+     *                  corresponds to the L
+     *                  increase in the LAB color space. A negative value will
+     *                  darken the color and
+     *                  a positive will lighten it.
      * @return the changed color
      */
     private static int changeColorLightness(int baseColor, int amount) {
@@ -179,7 +194,7 @@ public class ColorHelper {
                     android.R.color.primary_text_light);
         } else {
             return context.getResources().getColor(
-                   android.R.color.primary_text_dark);
+                    android.R.color.primary_text_dark);
         }
     }
 
@@ -219,7 +234,8 @@ public class ColorHelper {
     }
 
     /**
-     * Framework copy of functions needed from android.support.v4.graphics.ColorUtils.
+     * Framework copy of functions needed from
+     * android.support.v4.graphics.ColorUtils.
      */
     private static class ColorUtilsFromCompat {
         private static final double XYZ_WHITE_REFERENCE_X = 95.047;
@@ -230,10 +246,12 @@ public class ColorHelper {
 
         private static final ThreadLocal<double[]> TEMP_ARRAY = new ThreadLocal<>();
 
-        private ColorUtilsFromCompat() {}
+        private ColorUtilsFromCompat() {
+        }
 
         /**
-         * Composite two potentially translucent colors over each other and returns the result.
+         * Composite two potentially translucent colors over each other and returns the
+         * result.
          */
         static int compositeColors(@ColorInt int foreground, @ColorInt int background) {
             int bgAlpha = Color.alpha(background);
@@ -255,13 +273,17 @@ public class ColorHelper {
         }
 
         private static int compositeComponent(int fgC, int fgA, int bgC, int bgA, int a) {
-            if (a == 0) return 0;
+            if (a == 0)
+                return 0;
             return ((0xFF * fgC * fgA) + (bgC * bgA * (0xFF - fgA))) / (a * 0xFF);
         }
 
         /**
-         * Returns the luminance of a color as a float between {@code 0.0} and {@code 1.0}.
-         * <p>Defined as the Y component in the XYZ representation of {@code color}.</p>
+         * Returns the luminance of a color as a float between {@code 0.0} and
+         * {@code 1.0}.
+         * <p>
+         * Defined as the Y component in the XYZ representation of {@code color}.
+         * </p>
          */
         @FloatRange(from = 0.0, to = 1.0)
         public static double calculateLuminance(@ColorInt int color) {
@@ -276,7 +298,8 @@ public class ColorHelper {
          * {@code background} must be opaque.
          * <p>
          * Formula defined
-         * <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef">here</a>.
+         * <a href=
+         * "http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef">here</a>.
          */
         static double calculateContrast(@ColorInt int foreground, @ColorInt int background) {
             if (Color.alpha(background) != 255) {
@@ -284,7 +307,8 @@ public class ColorHelper {
                         + Integer.toHexString(background));
             }
             if (Color.alpha(foreground) < 255) {
-                // If the foreground is translucent, composite the foreground over the background
+                // If the foreground is translucent, composite the foreground over the
+                // background
                 foreground = compositeColors(foreground, background);
             }
 
@@ -332,8 +356,10 @@ public class ColorHelper {
         /**
          * Convert the ARGB color to it's CIE XYZ representative components.
          *
-         * <p>The resulting XYZ representation will use the D65 illuminant and the CIE
-         * 2° Standard Observer (1931).</p>
+         * <p>
+         * The resulting XYZ representation will use the D65 illuminant and the CIE
+         * 2° Standard Observer (1931).
+         * </p>
          *
          * <ul>
          * <li>outXyz[0] is X [0 ...95.047)</li>
@@ -351,8 +377,10 @@ public class ColorHelper {
         /**
          * Convert RGB components to it's CIE XYZ representative components.
          *
-         * <p>The resulting XYZ representation will use the D65 illuminant and the CIE
-         * 2° Standard Observer (1931).</p>
+         * <p>
+         * The resulting XYZ representation will use the D65 illuminant and the CIE
+         * 2° Standard Observer (1931).
+         * </p>
          *
          * <ul>
          * <li>outXyz[0] is X [0 ...95.047)</li>
@@ -387,8 +415,11 @@ public class ColorHelper {
         /**
          * Converts a color from CIE XYZ to CIE Lab representation.
          *
-         * <p>This method expects the XYZ representation to use the D65 illuminant and the CIE
-         * 2° Standard Observer (1931).</p>
+         * <p>
+         * This method expects the XYZ representation to use the D65 illuminant and the
+         * CIE
+         * 2° Standard Observer (1931).
+         * </p>
          *
          * <ul>
          * <li>outLab[0] is L [0 ...100)</li>
@@ -419,8 +450,10 @@ public class ColorHelper {
         /**
          * Converts a color from CIE Lab to CIE XYZ representation.
          *
-         * <p>The resulting XYZ representation will use the D65 illuminant and the CIE
-         * 2° Standard Observer (1931).</p>
+         * <p>
+         * The resulting XYZ representation will use the D65 illuminant and the CIE
+         * 2° Standard Observer (1931).
+         * </p>
          *
          * <ul>
          * <li>outXyz[0] is X [0 ...95.047)</li>
@@ -456,8 +489,11 @@ public class ColorHelper {
         /**
          * Converts a color from CIE XYZ to its RGB representation.
          *
-         * <p>This method expects the XYZ representation to use the D65 illuminant and the CIE
-         * 2° Standard Observer (1931).</p>
+         * <p>
+         * This method expects the XYZ representation to use the D65 illuminant and the
+         * CIE
+         * 2° Standard Observer (1931).
+         * </p>
          *
          * @param x X component value [0...95.047)
          * @param y Y component value [0...100)
@@ -500,11 +536,17 @@ public class ColorHelper {
         }
 
         private static int constrain(int amount, int low, int high) {
-            return amount < low ? low : (amount > high ? high : amount);
+            if (amount < low) {
+                return low;
+            }
+            return amount > high ? high : amount;
         }
 
         private static float constrain(float amount, float low, float high) {
-            return amount < low ? low : (amount > high ? high : amount);
+            if (amount < low) {
+                return low;
+            }
+            return amount > high ? high : amount;
         }
 
         private static double pivotXyzComponent(double component) {
@@ -658,21 +700,23 @@ public class ColorHelper {
 
     }
 
-
     /**
-     * The lightness difference that has to be added to the primary text color to obtain the
+     * The lightness difference that has to be added to the primary text color to
+     * obtain the
      * secondary text color when the background is light.
      */
     private static final int LIGHTNESS_TEXT_DIFFERENCE_LIGHT = 20;
 
     /**
-     * The lightness difference that has to be added to the primary text color to obtain the
+     * The lightness difference that has to be added to the primary text color to
+     * obtain the
      * secondary text color when the background is dark.
      * A bit less then the above value, since it looks better on dark backgrounds.
      */
     private static final int LIGHTNESS_TEXT_DIFFERENCE_DARK = -10;
 
-    public Pair<Integer, Integer> ensureColors(Context context, boolean hasForegroundColor, int backgroundColor, int foregroundColor) {
+    public Pair<Integer, Integer> ensureColors(Context context, boolean hasForegroundColor, int backgroundColor,
+            int foregroundColor) {
         int primaryTextColor;
         int secondaryTextColor;
         if (!hasForegroundColor) {
@@ -690,7 +734,8 @@ public class ColorHelper {
                     backgroundColor);
             // We only respect the given colors if worst case Black or White still has
             // contrast
-            boolean backgroundLight = backLum > textLum && ColorHelper.satisfiesTextContrast(backgroundColor, Color.BLACK)
+            boolean backgroundLight = backLum > textLum
+                    && ColorHelper.satisfiesTextContrast(backgroundColor, Color.BLACK)
                     || backLum <= textLum && !ColorHelper.satisfiesTextContrast(backgroundColor, Color.WHITE);
             if (contrast < 4.5f) {
                 if (backgroundLight) {
@@ -702,12 +747,11 @@ public class ColorHelper {
                     primaryTextColor = ColorHelper.changeColorLightness(
                             secondaryTextColor, -LIGHTNESS_TEXT_DIFFERENCE_LIGHT);
                 } else {
-                    secondaryTextColor =
-                            ColorHelper.findContrastColorAgainstDark(
-                                    foregroundColor,
-                                    backgroundColor,
-                                    true /* findFG */,
-                                    4.5f);
+                    secondaryTextColor = ColorHelper.findContrastColorAgainstDark(
+                            foregroundColor,
+                            backgroundColor,
+                            true /* findFG */,
+                            4.5f);
                     primaryTextColor = ColorHelper.changeColorLightness(
                             secondaryTextColor, -LIGHTNESS_TEXT_DIFFERENCE_DARK);
                 }
@@ -726,8 +770,7 @@ public class ColorHelper {
                                 true /* findFG */,
                                 4.5f);
                     } else {
-                        secondaryTextColor
-                                = ColorHelper.findContrastColorAgainstDark(
+                        secondaryTextColor = ColorHelper.findContrastColorAgainstDark(
                                 secondaryTextColor,
                                 backgroundColor,
                                 true /* findFG */,

@@ -51,7 +51,7 @@ interface Repository {
         fun getAlbums(): Observable<List<Album>>
     }
 
-    interface AlbumArtistsRepository {
+    fun interface AlbumArtistsRepository {
 
         /**
          * Returns a continuous list of [AlbumArtist]s
@@ -59,7 +59,7 @@ interface Repository {
         fun getAlbumArtists(): Observable<List<AlbumArtist>>
     }
 
-    interface GenresRepository {
+    fun interface GenresRepository {
 
         /**
          * Returns a continuous List of [Genre]s
